@@ -24,19 +24,27 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  double x, y, z;
+  double xA, yA, zA, xG, yG, zG;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    accelerometerEvents.listen((AccelerometerEvent event) {
+    accelerometerEvents.listen((AccelerometerEvent eventA) {
       setState(() {
-        x = event.x;
-        y = event.y;
-        z = event.z;
+        xA = eventA.x;
+        yA = eventA.y;
+        zA = eventA.z;
       });
     }); //get the sensor data and set then to the data types
+
+    gyroscopeEvents.listen((GyroscopeEvent eventG) {
+      setState(() {
+        xG = eventG.x;
+        yG = eventG.y;
+        zG = eventG.z;
+      });
+    });
   }
 
   @override
@@ -67,14 +75,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          "X Asis : ",
+                          "Accl X Axis : ",
                           style: TextStyle(fontSize: 20.0),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                            x.toStringAsFixed(
+                            xA.toStringAsFixed(
                                 2), //trim the asis value to 2 digit after decimal point
                             style: TextStyle(fontSize: 20.0)),
                       )
@@ -85,14 +93,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          "Y Asis : ",
+                          "Accl Y Axis : ",
                           style: TextStyle(fontSize: 20.0),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                            y.toStringAsFixed(
+                            yA.toStringAsFixed(
                                 2), //trim the asis value to 2 digit after decimal point
                             style: TextStyle(fontSize: 20.0)),
                       )
@@ -103,14 +111,68 @@ class _MyHomePageState extends State<MyHomePage> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          "Z Asis : ",
+                          "Accl Z Axis : ",
                           style: TextStyle(fontSize: 20.0),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                            z.toStringAsFixed(
+                            zA.toStringAsFixed(
+                                2), //trim the asis value to 2 digit after decimal point
+                            style: TextStyle(fontSize: 20.0)),
+                      )
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Gyro X Axis : ",
+                          style: TextStyle(fontSize: 20.0),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                            xG.toStringAsFixed(
+                                2), //trim the asis value to 2 digit after decimal point
+                            style: TextStyle(fontSize: 20.0)),
+                      )
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Gyro Y Axis : ",
+                          style: TextStyle(fontSize: 20.0),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                            yG.toStringAsFixed(
+                                2), //trim the asis value to 2 digit after decimal point
+                            style: TextStyle(fontSize: 20.0)),
+                      )
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Gyro Z Axis : ",
+                          style: TextStyle(fontSize: 20.0),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                            zG.toStringAsFixed(
                                 2), //trim the asis value to 2 digit after decimal point
                             style: TextStyle(fontSize: 20.0)),
                       )
