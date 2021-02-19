@@ -1,3 +1,5 @@
+// Contributed by Mohanish Kashiwar of IIIT Nagpur
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
