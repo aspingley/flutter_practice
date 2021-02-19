@@ -1,3 +1,16 @@
+//Step 0: Create API key using Google Cloud platform 
+//1. Go to https://console.cloud.google.com/project/_/apiui/credential 
+//2. Click "Select a project" from top bar and create a new project with a meaningful name. 
+//3. On the newly create project page, select "Credentials" option from left pane.  
+//4. Below the top bar, you will see "+ CREATE CREDENTIALS" option. Click and select API key. The API key created dialog displays your newly created API key. 
+//5. Click Close. The new API key is listed on the Credentials page under API keys. 
+
+//Step 1: Create Flutter app 
+//1. Create a flutter app with boilerplate code using Visual Studio Code 
+//2. Open pubspec.yaml file. Add "google_maps:" to dependencies section under "cupertino_icons: ^1.0.1". 
+//3. Open index.html and add the following statement inside the body section: 
+//4. <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_CREDENTIALS_API_KEY"></script> 
+
 import 'package:flutter/material.dart';
 import 'package:google_maps/google_maps.dart';
 import 'dart:ui' as ui;
